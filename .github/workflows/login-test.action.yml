@@ -16,6 +16,7 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
+          name: accounts
           path: ./accounts.json
 
   run-login-test:
@@ -27,7 +28,7 @@ jobs:
       - name: Download Artifact-1
         uses: actions/download-artifact@v3
         with:
-          path: ./accounts.json
+          name: accounts
       - name: Setup NodeJs
         uses: actions/setup-node@v3
         with:
@@ -40,7 +41,8 @@ jobs:
       - run: npm install
       - run: ls -lart
       - run: cat data.json
-      - run: cat accounts.json
+      - run: ls accounts
+      - run: cat accounts/accounts.json
       - name: Run k6 test script
         shell: bash
         run: |
