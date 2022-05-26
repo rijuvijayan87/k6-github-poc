@@ -2,7 +2,7 @@ name: login-e2e-test
 
 on:
   workflow_run:
-    workflows: ['signup-e2e-test']
+    workflows: [signup-e2e-test]
     types:
       - completed
 

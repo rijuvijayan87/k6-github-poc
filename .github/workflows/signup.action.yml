@@ -2,20 +2,24 @@ name: signup-e2e-test
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-    branches: [master]
+    branches: [main]
 
 jobs:
-  login:
-    name: 'Execute sign up e2e flow'
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v3
+      - name: Use Node.js 16.3.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.3.0
+          cache: 'npm'
       - run: mv data.json accounts.json
-      - name: upload artifacts
-        if: always()
-        uses: actions/upload-artifact@v2
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.0
         with:
           name: accounts.json
           path: accounts.json
