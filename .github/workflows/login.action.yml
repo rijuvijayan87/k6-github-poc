@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Download Artifact-1
-        uses: actions/download-artifact@master
+        uses: actions/download-artifact@v3
         with:
           name: accounts.json
           path: accounts.json
