@@ -3,7 +3,7 @@ import { sleep } from 'k6';
 import { SharedArray } from 'k6/data';
 
 export const options = {
-  vus: 1,
+  vus: 5,
   duration: '10s',
 };
 
