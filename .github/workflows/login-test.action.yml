@@ -16,8 +16,8 @@ jobs:
       - name: Upload a Build Artifact
         uses: actions/upload-artifact@v3.1.0
         with:
-          name: accounts.json
-          path: accounts.json
+          name: accounts
+          path: ./accounts.json
 
   run-login-test:
     name: Execute login e2e flow
@@ -28,8 +28,8 @@ jobs:
       - name: Download Artifact-1
         uses: actions/download-artifact@v3
         with:
-          name: accounts.json
-          path: accounts.json
+          name: accounts
+          path: ./accounts.json
       - name: Setup NodeJs
         uses: actions/setup-node@v3
         with:
