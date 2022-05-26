@@ -1,0 +1,39 @@
+name: signup-e2e-test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  create-accounts:
+    name: Create login accounts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: mv data.json accounts.json
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.0
+        with:
+          name: accounts.json
+          path: accounts.json
+
+  run-login-test:
+    name: Execute login e2e flow
+    needs: create-accounts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Download Artifact-1
+        uses: actions/download-artifact@v3
+        with:
+          name: accounts.json
+          path: accounts.json
+      - name: Setup NodeJs
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.3.0
+          cache: 'npm'
+      - run: npm install
+      - run: k6 run src/script.ts
