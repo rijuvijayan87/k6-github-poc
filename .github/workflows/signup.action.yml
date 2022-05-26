@@ -1,0 +1,21 @@
+name: signup-e2e-test
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  login:
+    name: 'Execute sign up e2e flow'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: mv data.json accounts.json
+      - name: upload artifacts
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: accounts.json
+          path: accounts.json
