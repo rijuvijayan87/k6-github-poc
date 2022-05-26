@@ -23,6 +23,7 @@ jobs:
     name: Execute login e2e flow
     needs: create-accounts
     runs-on: ubuntu-latest
+    container: docker://loadimpact/k6:latest
     steps:
       - uses: actions/checkout@v3
       - name: Download Artifact-1
