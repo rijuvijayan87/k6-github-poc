@@ -23,7 +23,6 @@ jobs:
     name: Execute login e2e flow
     needs: create-accounts
     runs-on: ubuntu-latest
-    container: docker://loadimpact/k6:latest
     steps:
       - uses: actions/checkout@v3
       - name: Download Artifact-1
@@ -36,5 +35,9 @@ jobs:
         with:
           node-version: 16.3.0
           cache: 'npm'
+      - name: Install k6
+        shell: bash
+        run: |
+          curl https://github.com/grafana/k6/releases/download/v0.37.0/k6-v0.37.0-linux-amd64.tar.gz -L | tar xvz --strip-components 1
       - run: npm install
       - run: k6 run src/script.ts
