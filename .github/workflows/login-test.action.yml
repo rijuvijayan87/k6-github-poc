@@ -41,7 +41,6 @@ jobs:
       - run: npm install
       - run: ls -lart
       - run: cat data.json
-      - run: ls accounts
       - run: cat accounts.json
       - run: ls accounts.json
       - name: Run k6 test script
