@@ -42,7 +42,8 @@ jobs:
       - run: ls -lart
       - run: cat data.json
       - run: ls accounts
-      - run: cat accounts/accounts.json
+      - run: cat accounts.json
+      - run: ls accounts.json
       - name: Run k6 test script
         shell: bash
         run: |
