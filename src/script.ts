@@ -8,7 +8,7 @@ export const options = {
 };
 
 const data = new SharedArray('some name', function () {
-  const f = JSON.parse(open('accounts.json'));
+  const f = JSON.parse(open('./../data.json'));
   return f; // f must be an array
 });
 
