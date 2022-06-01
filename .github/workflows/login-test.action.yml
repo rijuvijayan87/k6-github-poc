@@ -2,9 +2,9 @@ name: signup-e2e-test
 
 on:
   push:
-    branches: [main]
+    branches: [test-workflow]
   pull_request:
-    branches: [main]
+    branches: [test-workflow]
 
 jobs:
   create-accounts:
