@@ -5,7 +5,7 @@ on:
     branches: [test-workflow]
     inputs:
       tps:
-        description: 'rate'
+        description: 'Rate'
         required: true
 
 jobs:
